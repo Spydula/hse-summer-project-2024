@@ -1,6 +1,4 @@
 class Solution {
-    fun min(a: Int, b: Int) = if(a > b) b else a
-    fun max(a: Int, b: Int) = if(a > b) a else b
     fun count_time_between(a: Int, b: Int, c: Int, d: Int): Int
     {
         val e = min(a - b, c - d)
