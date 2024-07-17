@@ -1,31 +1,7 @@
 class Solution {
-    fun count_time_between(a: Int, b: Int, c: Int, d: Int): Int
+    fun count_time(x1: Int, y1: Int, x2: Int, y2: Int): Int
     {
-        val e = min(a - b, c - d)
-        val f = max(a - b, c - d) - e
-        return e + f
-    }
-    fun count_time(first_point_xx: Int, first_point_yy: Int, second_point_xx: Int, second_point_yy: Int): Int
-    {
-        var diagonal_time: Int = 0
-        var horisontal_vertical_time: Int = 0
-        data class PointPair (val x1: Int, val y1: Int, val x2: Int, val y2: Int)
-        val point = PointPair(first_point_xx, first_point_yy, second_point_xx, second_point_yy)
-        var time = 0
-        if(point.x1 >= point.x2 && point.y1 >= point.y2){
-            time = count_time_between(point.x1, point.x2, point.y1, point.y2)
-        }
-        else if(point.x1 < point.x2 && point.y1 >= point.y2){
-            time = count_time_between(point.x2, point.x1, point.y1, point.y2)
-        } 
-        else if(point.x1 >= point.x2 && point.y1 < point.y2){ 
-            time = count_time_between(point.x1, point.x2, point.y2, point.y1)
-        }
-        else
-        {
-            time = count_time_between(point.x2, point.x1, point.y2, point.y1)
-        }
-        return time
+        return max(max(x1, x2) - min(x1, x2), max(y1, y2) - min(y1, y2))
     }
     fun minTimeToVisitAllPoints(points: Array<IntArray>): Int {
         var total_time = 0;
